@@ -5,9 +5,9 @@ import noticeRoutes from './routes/noticeRoutes.js';
 
 const app = express();
 app.use(cors());
-// // Middleware
+// Middleware
 // app.use(cors({
-//   origin: 'http://localhost:5173', // or your production frontend domain
+//   origin: 'https://mundissociety.in', // or your production frontend domain
 //   methods: ['GET', 'POST', 'DELETE'], // Allowed HTTP methods
 //   credentials: true, // if you need to send cookies or auth headers
 // }));
@@ -21,10 +21,10 @@ app.get('/', (req, res) => {
 app.use('/api', noticeRoutes);
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/notices-db', {
+mongoose.connect('process.env.Mongo_Url', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
   console.log('MongoDB connected');
-  app.listen(3000, () => console.log('Server running on port 3000'));
+  app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
 }).catch(err => console.error('DB connection error:', err));
