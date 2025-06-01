@@ -1,7 +1,7 @@
 import express from 'express';
 import upload from '../middleware/upload.js';
 import verifyToken from '../middleware/auth.js';
-import { createNotice, deleteNotice,getAllNotices } from '../controllers/noticeController.js';
+import { createNotice, deleteNotice,getAllNotices } from '../controllers/noticecontroller.js';
 import { adminLogin } from '../controllers/authController.js';
 
 const router = express.Router();

@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import noticeRoutes from './routes/noticeRoutes.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -21,7 +23,7 @@ app.get('/', (req, res) => {
 app.use('/api', noticeRoutes);
 
 // MongoDB connection
-mongoose.connect('process.env.Mongo_Url', {
+mongoose.connect(process.env.Mongo_Url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {

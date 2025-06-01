@@ -1,7 +1,7 @@
 // middleware/auth.js
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = 'admin';  // Same secret
+const JWT_SECRET = process.env.JWT_SECRET;  // Same secret
 
 export default function verifyToken(req, res, next) {
   const authHeader = req.headers['authorization'];

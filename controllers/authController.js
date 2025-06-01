@@ -1,9 +1,9 @@
 // controllers/authController.js
 import jwt from 'jsonwebtoken';
 
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin';  // Change to a strong password!
-const JWT_SECRET = 'admin';  // Use env var in real app
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;  // Change to a strong password!
+const JWT_SECRET = process.env.JWT_SECRET;  // Use env var in real app
 
 export const adminLogin = (req, res) => {
   const { username, password } = req.body;
